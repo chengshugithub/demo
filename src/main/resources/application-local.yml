@@ -5,6 +5,29 @@ spring:
     url: jdbc:mysql://192.168.17.67:3306/test?serverTimezone=UTC
     username: root
     password: root
+  redisson:
+    #地址
+    address: 127.0.0.1:6379
+    #尝试时间
+    try-time: 0
+    #锁的时间
+    lock-time: 4
+    #redis密码
+    password: leadingcloud
+    #扫描间隔
+    scanInterval: 2000
+    #命令失败重试次数
+    retryAttempts: 5
+    #超时时间
+    timeout: 10000
+#配置哨兵模式redis连接信息
+  redis:
+    sentinel:
+      master: mymaster
+      nodes: 127.0.0.1:6380,127.0.0.1:6381
+    password: leadingcloud
+#    database = xxxx
+
 
 
 

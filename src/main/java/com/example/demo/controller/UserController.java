@@ -35,7 +35,22 @@ public class UserController {
         userService.updateUser(user);
         return "success";
     }
+    //压力测试，测试分布式锁；(未加锁的情况)
 
+    @GetMapping("/testLock/{id}")
+    public String testLock(@PathVariable("id") Integer id){
+        userService.testLock(id);
+        return "success";
+
+    }
+    //压力测试，测试分布式锁；(加锁的情况)
+
+    @GetMapping("/testAddLock/{id}")
+    public String testAddLock(@PathVariable("id") Integer id) throws Exception{
+        userService.testAddLock(id);
+        return "success";
+
+    }
 
 
 }
