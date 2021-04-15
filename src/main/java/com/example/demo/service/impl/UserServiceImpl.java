@@ -4,6 +4,7 @@ import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.UserService;
 import org.redisson.api.RLock;
+import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean testAddLock(Integer id) throws Exception {
+
+
         Boolean result=false;
         //获取key，获取锁
         final String lockKey=new StringBuffer().append(id).append("-RedissonLock").toString();
