@@ -2,8 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
-import com.example.demo.util.RedissonUtil;
-import org.redisson.api.RMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +11,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private RedissonUtil redissonUtil;
-
 
     @GetMapping("/getone/{id}")
     public User getUser(@PathVariable("id") Integer id){
@@ -40,25 +35,7 @@ public class UserController {
         userService.updateUser(user);
         return "success";
     }
-    //压力测试，测试分布式锁；(未加锁的情况)
 
-    @GetMapping("/testLock/{id}")
-    public String testLock(@PathVariable("id") Integer id){
-        userService.testLock(id);
-        return "success";
-
-    }
-    //压力测试，测试分布式锁；(加锁的情况)
-
-    @GetMapping("/testAddLock/{id}")
-    public String testAddLock(@PathVariable("id") Integer id) throws Exception{
-        redissonUtil.setString("cs","小阿叔");
-        userService.testAddLock(id);
-        String result=redissonUtil.getString("cs");
-
-        return result;
-
-    }
 
 
 }
