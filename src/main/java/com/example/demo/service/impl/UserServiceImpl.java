@@ -15,7 +15,6 @@ public class UserServiceImpl extends AbstractUserService {
 
     @Override
     public User getUserById(Integer id) {
-        System.out.println("注入了");
         return userMapper.getUserById(id);
     }
 

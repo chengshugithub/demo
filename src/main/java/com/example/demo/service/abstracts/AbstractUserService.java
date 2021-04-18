@@ -18,11 +18,12 @@ public abstract class AbstractUserService implements UserService {
     @Override
     public  void  sameToDo(){
         //逻辑1(相同)
+        userMapper.getUserById(1);
         //tod
         //逻辑2（相同）
         //tod
         //逻辑3(不同)
-        System.out.println("进去了");
+        System.out.println(userMapper.getUserById(1));
         DifferentToDo();
         //逻辑4(不同)
         DifferentToDo2();
