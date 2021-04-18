@@ -12,11 +12,11 @@ public interface UserService {
      */
      void addUser(User user);
 
+    void  sameToDo();
 
     void deleteUser(Integer id);
 
     void updateUser(User user);
 
-    void sameToDo();
 
 }

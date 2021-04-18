@@ -15,6 +15,7 @@ public class UserServiceImpl extends AbstractUserService {
 
     @Override
     public User getUserById(Integer id) {
+        System.out.println("注入了");
         return userMapper.getUserById(id);
     }
 
@@ -35,6 +36,7 @@ public class UserServiceImpl extends AbstractUserService {
 
     @Override
     public void DifferentToDo() {
+
         System.out.println("实现功能1");
 
     }
