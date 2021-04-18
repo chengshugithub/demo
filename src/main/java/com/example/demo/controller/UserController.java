@@ -36,8 +36,8 @@ public class UserController {
         return "success";
     }
     //ceshi1
-    @PostMapping("/ceshi1")
-    public String ceshi1(@RequestParam String name, @RequestParam Integer age, @RequestParam String sex,@RequestParam Integer id){
+    @GetMapping("/ceshi1")
+    public String ceshi1(){
       userService.sameToDo();
 
         return "success";
