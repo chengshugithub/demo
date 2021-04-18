@@ -35,7 +35,12 @@ public class UserController {
         userService.updateUser(user);
         return "success";
     }
+    //ceshi1
+    @PostMapping("/ceshi1")
+    public String ceshi1(@RequestParam String name, @RequestParam Integer age, @RequestParam String sex,@RequestParam Integer id){
+      userService.sameToDo();
 
-
+        return "success";
+    }
 
 }
